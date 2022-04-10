@@ -1,0 +1,27 @@
+/**
+ FLEX BOX
+*/
+.card-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width:33%;
+}
+
+.card-container:hover {
+    width:34%;
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 3px 3px grey, -1em 0 .4em grey;
+}
+
+.action-button-cntainer {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+img {
+    width: 100%;
+    padding: 10px;
+}

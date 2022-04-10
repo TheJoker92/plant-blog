@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
 import { IPlant } from 'src/app/interfaces/IPlant';
 
 @Component({
@@ -12,7 +12,10 @@ export class PlantCardComponent implements OnInit {
   @Input() plant: IPlant
 
   constructor() {
-    this.plant.image = "data:image/png;base64," + this.plant.image
+  }
+
+  ngOnChanges(change: SimpleChanges) {
+    if (change.plant) this.plant.image = "data:image/png;base64," + this.plant.image
   }
 
   ngOnInit(): void {

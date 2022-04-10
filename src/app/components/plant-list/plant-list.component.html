@@ -1,1 +1,3 @@
-<p>plant-list works!</p>
+<div *ngFor="let plant of plantList">
+    <app-plant-card [plant]="plant"></app-plant-card>
+</div>

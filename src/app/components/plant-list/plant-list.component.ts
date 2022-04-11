@@ -3,6 +3,7 @@ import { IPlant } from 'src/app/interfaces/IPlant';
 import { IResponse } from 'src/app/interfaces/IResponse';
 import { PlantsService } from 'src/app/plants.service';
 import { LoaderService } from 'src/app/service/loader.service';
+import { LangPipe } from 'src/app/utils/pipes/lang/lang.pipe';
 
 @Component({
   selector: 'app-plant-list',
@@ -25,12 +26,19 @@ export class PlantListComponent implements OnInit {
     //only one time after constructor and generally the list not change
     this.plantsService.getList().subscribe({
       next: (response: IResponse) => {
+        
+        //3s delay
         setTimeout(() => {
+          this.plantsService.plantsList = response.message.data
+
+          this.plantsService.filteredPlantsList = this.plantsService.plantsList
+
           this.loaderService.$isLoading.next(false)
-          console.log(response.message.data)
-          this.plantsService.plantList = response.message.data
       },3000);
         
+      },
+      error: () => {
+        window.alert(LangPipe.transformation("PLANTLIST.ERROR"))
       }
     })
   }

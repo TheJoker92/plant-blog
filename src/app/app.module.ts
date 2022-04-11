@@ -15,6 +15,11 @@ import { MenuComponent } from './components/menu/menu.component';
 import { DetailComponent } from './pages/detail/detail.component';
 import { PlantListComponent } from './components/plant-list/plant-list.component';
 import { PlantCardComponent } from './components/plant-list/plant-card/plant-card.component';
+import { LoaderComponent } from './components/loader/loader.component';
+import { LoaderService } from './service/loader.service';
+import { PlantsService } from './plants.service';
+import { RouterModule } from '@angular/router';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -24,14 +29,20 @@ import { PlantCardComponent } from './components/plant-list/plant-card/plant-car
     DetailComponent,
     LangPipe,
     PlantListComponent,
-    PlantCardComponent
+    PlantCardComponent,
+    LoaderComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,
+    RouterModule,
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    LoaderService,
+    PlantsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,7 +5,7 @@
     <p>
         {{ plant.detail }}
     </p>
-    <div class="action-button-cntainer">
-        <button>{{ 'PLANTCARD.DETAIL' | lang }}</button>
+    <div class="action-button-container">
+        <button (click)="goToDetail(plant)">{{ 'PLANTCARD.DETAIL' | lang }}</button>
     </div>
 </div>

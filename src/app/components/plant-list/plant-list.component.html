@@ -1,3 +1,7 @@
-<div *ngFor="let plant of plantsService.plantList" class="w-50">
+<div *ngIf="!loaderService.isLoading" class="search-input">
+    <app-search-bar *ngIf="!loaderService.isLoading" ></app-search-bar>
+</div>
+
+<div *ngFor="let plant of plantsService.filteredPlantsList" class="w-50">
     <app-plant-card [plant]="plant"></app-plant-card>
 </div>

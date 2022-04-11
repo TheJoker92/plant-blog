@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import * as data from './lang_it.json';
+import * as data from './lang_EN.json';
 
 /**
  * This pipe transforms the input string into the value to be rendered

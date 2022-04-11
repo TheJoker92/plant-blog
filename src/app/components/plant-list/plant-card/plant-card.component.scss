@@ -5,17 +5,18 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    width:50%;
+    width:80%;
+    margin:10px;
 }
 
 .card-container:hover {
-    width:51%;
+    width:81%;
     border: 1px solid;
     padding: 10px;
     box-shadow: 3px 3px grey, -1em 0 .4em grey;
 }
 
-.action-button-cntainer {
+.action-button-container {
     display: flex;
     justify-content: flex-end;
     width: 100%;

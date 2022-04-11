@@ -1,4 +1,5 @@
-import { Component, Input, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
 import { IPlant } from 'src/app/interfaces/IPlant';
 
 @Component({
@@ -11,14 +12,14 @@ export class PlantCardComponent implements OnInit {
 
   @Input() plant: IPlant
 
-  constructor() {
-  }
-
-  ngOnChanges(change: SimpleChanges) {
-    if (change.plant) this.plant.image = "data:image/png;base64," + this.plant.image
+  constructor(private route: Router) {
   }
 
   ngOnInit(): void {
+  }
+
+  goToDetail(plant: IPlant) {
+    this.route.navigateByUrl(`detail/${plant.id.toString()}`)
   }
 
 }

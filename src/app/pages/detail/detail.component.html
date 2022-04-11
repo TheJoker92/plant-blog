@@ -1,1 +1,15 @@
-<p>detail works!</p>
+<div *ngIf="plantsService.selectedPlant; else notfound" >
+    <div class="detail-container">
+        <h3>{{ plantsService.selectedPlant.name }}</h3>
+        <img [src]="plantsService.selectedPlant.image" alt="Red dot" />
+        <p>
+            {{ plantsService.selectedPlant.detail }}
+        </p>
+        <div class="action-button-container">
+            <button (click)="goBack(plantsService.selectedPlant)">{{ 'DETAIL.BACK' | lang }}</button>
+        </div>
+    </div>
+</div>
+<ng-template #notfound>
+{{ 'DETAIL.NOT_FOUND' | lang}} 
+</ng-template>

@@ -33,18 +33,79 @@
     .modalWindow .modalFooter { padding: 8px 20px 8px 20px; }
     .modalFooter {
     background: #F1F1F1;
-    border-top: 1px solid #999;
-    -moz-box-shadow: inset 0px 13px 12px -14px #888;
-    -webkit-box-shadow: inset 0px 13px 12px -14px #888;
-    box-shadow: inset 0px 13px 12px -14px #888;
+    
     }
-    .modalFooter p {
-    color:#D4482D;
-    text-align:right;
-    margin:0;
-    padding: 5px;
-    }
+    
+    
     .close {
         visibility: hidden;
     }
     
+
+    /**
+ * ==============================================
+ * Dot Flashing
+ * ==============================================
+ */
+.dot-flashing {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #41bd8e;
+  color: #41bd8e;
+  animation: dotFlashing 1s infinite linear alternate;
+  animation-delay: .5s;
+}
+
+.modalContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.dot-flashing::before, .dot-flashing::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 0;
+}
+
+.dot-flashing::before {
+  left: -15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #41bd8e;
+  color: #41bd8e;
+  animation: dotFlashing 1s infinite alternate;
+  animation-delay: 0s;
+}
+
+.dot-flashing::after {
+  left: 15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #41bd8e;
+  color: #41bd8e;
+  animation: dotFlashing 1s infinite alternate;
+  animation-delay: 1s;
+}
+
+@keyframes dotFlashing {
+  0% {
+    background-color: #41bd8e;
+  }
+  50%,
+  100% {
+    background-color: #ebe6ff;
+  }
+}
+
+
+.loader-icon {
+    width:30%;
+    max-width: 150px;
+}
